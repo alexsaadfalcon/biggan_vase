@@ -338,6 +338,10 @@ def prepare_parser():
   parser.add_argument(
     '--resume', action='store_true', default=False,
     help='Resume training? (default: %(default)s)')
+  parser.add_argument(
+    '--resume_weights', type=str, default='',
+    help='Folder to resume weights from'
+         '(default: %(default)s)')
   
   ### Log stuff ###
   parser.add_argument(
@@ -413,7 +417,7 @@ imsize_dict = {'I32': 32, 'I32_hdf5': 32,
                'I128': 128, 'I128_hdf5': 128,
                'I256': 256, 'I256_hdf5': 256,
                'C10': 32, 'C100': 32,
-               'met': 32}
+               'met': 128}
 root_dict = {'I32': 'ImageNet', 'I32_hdf5': 'ILSVRC32.hdf5',
              'I64': 'ImageNet', 'I64_hdf5': 'ILSVRC64.hdf5',
              'I128': 'ImageNet', 'I128_hdf5': 'ILSVRC128.hdf5',

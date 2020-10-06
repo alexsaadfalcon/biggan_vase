@@ -100,7 +100,7 @@ def run(config):
   if config['resume']:
     print('Loading weights...')
     utils.load_weights(G, D, state_dict,
-                       config['weights_root'], experiment_name, 
+                       config['resume_weights'], '',
                        config['load_weights'] if config['load_weights'] else None,
                        G_ema if config['ema'] else None)
 
