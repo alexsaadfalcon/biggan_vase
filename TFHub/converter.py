@@ -70,6 +70,12 @@ def dump_tfhub_to_hdf5(module_path, hdf5_path, redownload=False):
   print('Saving BigGAN weights to :', hdf5_path)
   h5f = h5py.File(hdf5_path, 'w')
   for var in tf.global_variables():
+    # if var.name.startswith('module/Generator') or \
+    #   var.name.startswith('module/linear'):
+    # if True:
+    #   val = sess.run(var)
+    #   h5f.create_dataset(var.name, data=val)
+    #   print(f'Saving {var.name} with shape {val.shape}')
     val = sess.run(var)
     h5f.create_dataset(var.name, data=val)
     print(f'Saving {var.name} with shape {val.shape}')
